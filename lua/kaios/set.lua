@@ -22,5 +22,6 @@ o.incsearch = true
 o.splitright = true
 
 o.updatetime = 300
+o.timeoutlen = 500
 
 vim.g.mapleader = ' '

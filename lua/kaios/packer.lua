@@ -42,7 +42,6 @@ require('packer').startup(function(use)
   -- Fugitive-companion to interact with github
   -- use 'tpope/vim-rhubarb'
 
-
   -- LSP
   use {
       'nvim-treesitter/nvim-treesitter',
@@ -58,7 +57,7 @@ require('packer').startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use "windwp/nvim-autopairs"
-  -- use "liuchengxu/vim-which-key"
+  use "folke/which-key.nvim"
 
   -- Visuals
   use 'folke/tokyonight.nvim'
