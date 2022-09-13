@@ -6,7 +6,7 @@ local vnoremap = require("kaios.utils").vnoremap
 
 nnoremap("<leader>gd", ":call CocActionAsync('jumpDefinition')<CR>")
 inoremap("<C-space>", "coc#refresh()", {expr = true, silent = true})
-inoremap("<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<CR>"',{expr = true, silent = true} )
+inoremap("<CR>", 'coc#pum#visible() ? coc#pum#confirm() : v:lua.MPairs.completion_confirm()',{expr = true, silent = true} )
 inoremap("<tab>", 'coc#pum#visible() ? coc#pum#next(1): "<tab>"',{expr = true, silent = true} )
 inoremap("<s-tab>", 'coc#pum#visible() ? coc#pum#prev(1): "<tab>"',{expr = true, silent = true} )
 

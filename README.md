@@ -26,4 +26,4 @@ Packer as Plugin Manager
 - `<leader>f` to Focus Nvim-tree
 - `<leader>t` to Toogle Nvim-tree
 - `<leader>mp` to Open Markdown Preview
-
+- `<C-h|j|k|l>` to `<C-w>h|j|k|l`
