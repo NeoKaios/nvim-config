@@ -3,7 +3,8 @@
 My Nvim config files, everything in lua.
 
 Packer as Plugin Manager
-
+## Install
+- Packer : will require a buggy first startup, past errors Packer will launch plugins installation automatically
 ## :link: Main Plugins
 
 - Nvim-tree
