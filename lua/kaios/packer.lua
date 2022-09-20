@@ -58,6 +58,8 @@ require('packer').startup(function(use)
   })
   use "windwp/nvim-autopairs"
   use "folke/which-key.nvim"
+  use "mg979/vim-visual-multi"
+  use "kylechui/nvim-surround"
 
   -- Visuals
   use 'folke/tokyonight.nvim'

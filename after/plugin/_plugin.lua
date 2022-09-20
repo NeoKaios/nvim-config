@@ -23,6 +23,8 @@ require('nvim-autopairs').setup()
 
 require('nvim-web-devicons').setup()
 
+require('nvim-surround').setup()
+
 --Interfer with zR autocommand in treesitter atm, still useful tho
 -- require('which-key').setup({
 -- layout = {

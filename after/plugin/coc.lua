@@ -18,4 +18,14 @@ vim.opt.signcolumn = "number"
 vim.g.coc_global_extentions = {
     'coc-rust-analyzer',
     'coc-json',
+    'coc-phpls',
 }
+
+vim.opt.updatetime = 300
+vim.api.nvim_create_autocmd(
+    "CursorHold",
+    {
+        command = "call CocActionAsync('highlight')",
+        group = vim.api.nvim_create_augroup("coc", { clear = true})
+    }
+)

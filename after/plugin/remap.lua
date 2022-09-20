@@ -2,6 +2,7 @@ local nnoremap = require("kaios.utils").nnoremap
 local inoremap = require("kaios.utils").inoremap
 local vnoremap = require("kaios.utils").vnoremap
 local cnoremap = require("kaios.utils").cnoremap
+local tnoremap = require("kaios.utils").tnoremap
 
 -- local exprsilent = {expr = true, silent = true}
 -- local silent = {silent = true}
@@ -15,6 +16,7 @@ nnoremap("<leader>q", "<cmd>q<CR>")
 
 inoremap("kj", "<Esc>")
 cnoremap("kj", "<C-c>")
+tnoremap("kj", "<C-\\><C-n>")
 
 --Splits movement
 nnoremap("<C-l>", "<c-w>l")
@@ -23,8 +25,8 @@ nnoremap("<C-j>", "<c-w>j")
 nnoremap("<C-k>", "<c-w>k")
 -- rotate buffer ignoring nvim-tree window
 nnoremap("<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree').toggle(false, true)<cr><cmd>lua require('nvim-tree').toggle(false, true)<cr>")
-nnoremap("<C-up>", "<C-w>+")
-nnoremap("<C-down>", "<C-w>-")
+-- nnoremap("<C-up>", "<C-w>+")
+-- nnoremap("<C-down>", "<C-w>-")
 nnoremap("<C-left>", "<C-w><")
 nnoremap("<C-right>", "<C-w>>")
 
