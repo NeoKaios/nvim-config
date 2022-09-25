@@ -15,6 +15,7 @@ nnoremap("<leader>w", "<cmd>w<CR>")
 nnoremap("<leader>q", "<cmd>q<CR>")
 
 inoremap("kj", "<Esc>")
+inoremap("jk", "<Esc>")
 cnoremap("kj", "<C-c>")
 tnoremap("kj", "<C-\\><C-n>")
 
@@ -23,6 +24,10 @@ nnoremap("<C-l>", "<c-w>l")
 nnoremap("<C-h>", "<c-w>h")
 nnoremap("<C-j>", "<c-w>j")
 nnoremap("<C-k>", "<c-w>k")
+tnoremap("<C-l>", "<cmd>wincmd l<CR>")
+tnoremap("<C-h>", "<cmd>wincmd h<CR>")
+tnoremap("<C-j>", "<cmd>wincmd j<CR>")
+tnoremap("<C-k>", "<cmd>wincmd k<CR>")
 -- rotate buffer ignoring nvim-tree window
 nnoremap("<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree').toggle(false, true)<cr><cmd>lua require('nvim-tree').toggle(false, true)<cr>")
 -- nnoremap("<C-up>", "<C-w>+")

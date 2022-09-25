@@ -33,14 +33,12 @@ require('packer').startup(function(use)
      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  -- Termial
+  use 'akinsho/toggleterm.nvim'
+
   --Git
-  --todo
-  -- Git worktree
-  -- use 'ThePrimeagen/git-worktree.nvim'
-  -- Git commands in nvim
-  -- use 'tpope/vim-fugitive'
-  -- Fugitive-companion to interact with github
-  -- use 'tpope/vim-rhubarb'
+  use { 'lewis6991/gitsigns.nvim'}
+  use { 'tanvirtin/vgit.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- LSP
   use {
@@ -49,6 +47,7 @@ require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-context'
   use {'neoclide/coc.nvim', branch= 'release'}
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
   --QOL
   use 'numToStr/Comment.nvim'
@@ -63,12 +62,19 @@ require('packer').startup(function(use)
 
   -- Visuals
   use 'folke/tokyonight.nvim'
+  use 'EdenEast/nightfox.nvim'
 
   if packer_bootstrap then
-	  require'packer'.sync()
+      require'packer'.sync()
   end
-
 
 end)
 
+--[[ Other plugins
+  use "ellisonleao/glow.nvim" -- markdown preview in neovim
+  use 'gen740/SmoothCursor.nvim' -- smooth cursor scrolling in signcol
 
+  use 'kdheepak/lazygit.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+]]

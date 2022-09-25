@@ -25,6 +25,18 @@ require('nvim-web-devicons').setup()
 
 require('nvim-surround').setup()
 
+require('gitsigns').setup()
+
+require('trouble').setup()
+
+-- require('vgit').setup()
+
+require('toggleterm').setup({
+    open_mapping = "<c-s>",
+    direction='float'
+}
+)
+
 --Interfer with zR autocommand in treesitter atm, still useful tho
 -- require('which-key').setup({
 -- layout = {

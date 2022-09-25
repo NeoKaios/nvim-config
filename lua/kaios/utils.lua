@@ -3,7 +3,7 @@ local M = {}
 local function bind(mode, outer_opts)
     outer_opts = outer_opts or {noremap = true}
     return function(lhs, rhs, opts)
-        options = vim.tbl_extend("force",
+        local options = vim.tbl_extend("force",
             outer_opts,
             opts or {}
         )
