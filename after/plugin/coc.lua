@@ -13,7 +13,7 @@ inoremap("<s-tab>", 'coc#pum#visible() ? coc#pum#prev(1): "<tab>"', exprsilent )
 nnoremap("<leader>cd", ":call CocActionAsync('jumpDefinition')<CR>", silent)
 nnoremap("<leader>ch", ":call CocActionAsync('doHover')<CR>", silent)
 
--- vim.opt.signcolumn = "number"
+vim.opt.signcolumn = "number"
 
 vim.g.coc_global_extentions = {
     'coc-rust-analyzer',

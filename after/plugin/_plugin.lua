@@ -25,7 +25,11 @@ require('nvim-web-devicons').setup()
 
 require('nvim-surround').setup()
 
-require('gitsigns').setup()
+require('gitsigns').setup({
+    signcolumn = false,
+    numhl = true,
+}
+)
 
 require('trouble').setup()
 
