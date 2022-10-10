@@ -58,6 +58,10 @@ nnoremap("<leader>jf", function() require("harpoon.ui").nav_file(1) end)
 nnoremap("<leader>jd", function() require("harpoon.ui").nav_file(2) end)
 nnoremap("<leader>js", function() require("harpoon.ui").nav_file(3) end)
 nnoremap("<leader>ja", function() require("harpoon.ui").nav_file(4) end)
+nnoremap("<leader>jr", function() require("harpoon.ui").nav_file(5) end)
+nnoremap("<leader>je", function() require("harpoon.ui").nav_file(6) end)
+nnoremap("<leader>jw", function() require("harpoon.ui").nav_file(7) end)
+nnoremap("<leader>jq", function() require("harpoon.ui").nav_file(8) end)
 
 -- Telescope & Nvim-tree
 nnoremap("<leader>fd", function() require('nvim-tree').focus() end)
