@@ -41,12 +41,14 @@ require('packer').startup(function(use)
   use { 'tanvirtin/vgit.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- LSP
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use {
       'nvim-treesitter/nvim-treesitter',
       run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
   use 'nvim-treesitter/nvim-treesitter-context'
-  use {'neoclide/coc.nvim', branch= 'release'}
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
   --QOL
