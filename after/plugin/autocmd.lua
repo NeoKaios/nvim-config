@@ -2,7 +2,14 @@
 vim.api.nvim_create_autocmd(
     "BufWritePre",
     {
-        command = "%s/\\s\\+$//e",
+        callback = function()
+            if vim.bo.filetype == "markdown" then
+                vim.cmd([[%s/\(\S\zs\s\|^\s\+\|\s\s\s\+\)$//e]])
+            else
+                vim.cmd([[%s/\s\+$//e]])
+            end
+        end,
         group = vim.api.nvim_create_augroup("OnSave", { clear = true})
     }
 )
+
