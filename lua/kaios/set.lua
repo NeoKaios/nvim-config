@@ -23,5 +23,6 @@ o.splitright = true
 
 o.updatetime = 300
 o.timeoutlen = 500
+o.list = true
 
 vim.g.mapleader = ' '
