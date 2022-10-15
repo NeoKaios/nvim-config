@@ -50,6 +50,8 @@ require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-context'
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
+  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
   --QOL
   use 'numToStr/Comment.nvim'
