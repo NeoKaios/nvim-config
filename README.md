@@ -1,23 +1,23 @@
 # :rocket: My Nvim config
 
-My Nvim config files, everything in lua.
+My [Neovim](https://neovim.io) config files, everything in lua.
 
 Packer as Plugin Manager
 
 ## Install
 
-- Packer : will require a buggy first startup,
+- [Packer](https://github.com/wbthomason/packer.nvim) : will require a buggy first startup,
 past errors Packer will launch plugins installation automatically
 
 ## :link: Main Plugins
 
-- Nvim-tree
-- Tree-sitter
-- Lualine
-- Lsp-native and Mason
-- Nvim-cmp
-- Telescope
-- Harpoon
+- [Nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+- [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- [Lsp-native](https://neovim.io/doc/user/lsp.html), [lspconfig](https://github.com/neovim/nvim-lspconfig) and [Mason](https://github.com/williamboman/mason.nvim)
+- [Nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [Harpoon](https://github.com/ThePrimeagen/harpoon)
 
 ## :fire: Main keymaps
 
