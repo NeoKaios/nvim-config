@@ -14,7 +14,8 @@ past errors Packer will launch plugins installation automatically
 - Nvim-tree
 - Tree-sitter
 - Lualine
-- Coc
+- Lsp-native and Mason
+- Nvim-cmp
 - Telescope
 - Harpoon
 
@@ -48,10 +49,17 @@ past errors Packer will launch plugins installation automatically
 - `<leader>fb` Telescope buffers
 - `<leader>fh` Telescope help_tags
 - `<leader>jj` Harpoon Add file
-- `<leader>jf` Harpoon Navigate file 1 (`d` = 2, `s` = 3, `a` = 4)
+- `<leader>jf` Harpoon Navigate file 1 (`d`=2, `s`=3, `a`=4)
 - `<leader>mp` to Open Markdown Preview
-- `<leader>ch` Coc doHover
-- `<leader>cd` Coc jumpDefinition
+- `<leader>rn` to Rename
+- `<leader>ca` to Code Action
+- `gd` to Goto Definition
+- `gi` to Goto Implementation
+- `gr` to Goto Reference
+- `<leader>ds` to Show Document Symbols
+- `K` to Hover Documentation
+- `<C-s>` to Toogle terminal
+- `:Trouble` to Toogle diagnostics quickfix window
 
 ## :robot: Autocommands
 

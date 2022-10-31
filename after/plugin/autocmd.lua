@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd(
                 vim.cmd([[%s/\s\+$//e]])
             end
         end,
-        group = vim.api.nvim_create_augroup("OnSave", { clear = true})
+        group = vim.api.nvim_create_augroup("OnSave", { clear = true })
     }
 )
-
