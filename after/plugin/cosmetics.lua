@@ -5,24 +5,12 @@ local custom_codedark = require('lualine.themes.codedark')
 custom_codedark.normal.a.bg = "#20dd20"
 custom_codedark.normal.b.fg = "#60bb4e"
 
---[[
-local darkblue = "#303050"
-custom_codedark.normal.c.bg = darkblue
-custom_codedark.insert.c.bg = darkblue
-
-local darkerblue = "#200020"
-custom_codedark.normal.b.bg = darkerblue
-custom_codedark.insert.b.bg = darkerblue
-custom_codedark.visual.b.bg = darkerblue
-custom_codedark.replace.b.bg = darkerblue
-]]
-
 require('lualine').setup {
-  options = {
-    theme = custom_codedark,
-    -- section_separators = '',
-    component_separators = '',
-    extentions = { 'nvim-tree' },
+    options = {
+        theme = custom_codedark,
+        -- section_separators = '',
+        component_separators = '',
+        extentions = { 'nvim-tree' },
     },
     sections = {
         lualine_a = {'mode'},
@@ -33,10 +21,4 @@ require('lualine').setup {
         lualine_z = {'location'},
     },
 }
---[[
-vim.g.tokyonight_dark_sidebar = false
-vim.g.tokyonight_lualine_bold = true
-vim.g.tokyonight_dark_float = false
-vim.g.tokyonight_colors = { fg_gutter = '#7766bb', bg = '#202030'}
-]]
 vim.cmd[[colorscheme nightfox]]

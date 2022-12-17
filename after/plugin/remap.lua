@@ -1,75 +1,51 @@
-local nnoremap = require("kaios.utils").nnoremap
-local inoremap = require("kaios.utils").inoremap
-local vnoremap = require("kaios.utils").vnoremap
-local cnoremap = require("kaios.utils").cnoremap
-local tnoremap = require("kaios.utils").tnoremap
-
 -- local exprsilent = {expr = true, silent = true}
 -- local silent = {silent = true}
 
--- _noremap("key", "<cmd>command<CR>") to map :command
--- _noremap("key", 'expr', {expr = true, silent = true})
--- to map lua expr
+-- vim.keymap.set("_", "key", "<cmd>command<CR>") to map :command
+-- vim.keymap.set("_", "key", 'expr', {expr = true, silent = true}) to map lua expr
 
-nnoremap("<leader>w", "<cmd>w<CR>")
-nnoremap("<leader>q", "<cmd>q<CR>")
+-- Save & Quit
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 
-inoremap("kj", "<Esc>")
-inoremap("jk", "<Esc>")
-cnoremap("kj", "<C-c>")
-tnoremap("kj", "<C-\\><C-n>")
+-- Esc remaps
+vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("c", "kj", "<C-c>")
+vim.keymap.set("t", "kj", "<C-\\><C-n>")
 
 --Splits movement
-nnoremap("<C-l>", "<c-w>l")
-nnoremap("<C-h>", "<c-w>h")
-nnoremap("<C-j>", "<c-w>j")
-nnoremap("<C-k>", "<c-w>k")
-tnoremap("<C-l>", "<cmd>wincmd l<CR>")
-tnoremap("<C-h>", "<cmd>wincmd h<CR>")
-tnoremap("<C-j>", "<cmd>wincmd j<CR>")
-tnoremap("<C-k>", "<cmd>wincmd k<CR>")
+vim.keymap.set("n", "<C-l>", "<c-w>l")
+vim.keymap.set("n", "<C-h>", "<c-w>h")
+vim.keymap.set("n", "<C-j>", "<c-w>j")
+vim.keymap.set("n", "<C-k>", "<c-w>k")
+vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>")
+vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<CR>")
+vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<CR>")
+vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>")
 -- rotate buffer ignoring nvim-tree window
-nnoremap("<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree').toggle(false, true)<cr><cmd>lua require('nvim-tree').toggle(false, true)<cr>")
--- nnoremap("<C-up>", "<C-w>+")
--- nnoremap("<C-down>", "<C-w>-")
-nnoremap("<C-left>", "<C-w><")
-nnoremap("<C-right>", "<C-w>>")
+vim.keymap.set("n", "<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree').toggle(false, true)<cr><cmd>lua require('nvim-tree').toggle(false, true)<cr>")
+-- vim.keymap.set("n", "<C-up>", "<C-w>+")
+-- vim.keymap.set("n", "<C-down>", "<C-w>-")
+vim.keymap.set("n", "<C-left>", "<C-w><")
+vim.keymap.set("n", "<C-right>", "<C-w>>")
 
-
-nnoremap("<A-k>", ":m .-2<CR>==")
-nnoremap("<A-j>",":m .+1<CR>==")
-inoremap("<A-k>", "<Esc>:m .-2<CR>==gi")
-inoremap("<A-j>", "<Esc>:m .+1<CR>==gi")
-
---Markdown
-nnoremap("<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
+-- Move lines
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
+vim.keymap.set("n", "<A-j>",":m .+1<CR>==")
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 --Clipboard copy and paste
-vnoremap("<leader>y", '"+y')
-vnoremap("<leader>p", '"+p')
-nnoremap("<leader>p", '"+p')
-nnoremap("<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>y", '"+y')
 
--- Harpoon
-nnoremap("<leader>jj", function() require("harpoon.mark").add_file() end)
-nnoremap("<leader>jm", function() require("harpoon.ui").toggle_quick_menu() end)
-
-nnoremap("<leader>jf", function() require("harpoon.ui").nav_file(1) end)
-nnoremap("<leader>jd", function() require("harpoon.ui").nav_file(2) end)
-nnoremap("<leader>js", function() require("harpoon.ui").nav_file(3) end)
-nnoremap("<leader>ja", function() require("harpoon.ui").nav_file(4) end)
-nnoremap("<leader>jr", function() require("harpoon.ui").nav_file(5) end)
-nnoremap("<leader>je", function() require("harpoon.ui").nav_file(6) end)
-nnoremap("<leader>jw", function() require("harpoon.ui").nav_file(7) end)
-nnoremap("<leader>jq", function() require("harpoon.ui").nav_file(8) end)
-
--- Telescope & Nvim-tree
-nnoremap("<leader>fd", function() require('nvim-tree').focus() end)
-nnoremap("<leader>ft", function() require('nvim-tree').toggle(false, true) end)
-nnoremap("<leader>ff", function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>fg", function() require('telescope.builtin').live_grep() end)
-nnoremap("<leader>fb", function() require('telescope.builtin').buffers() end)
-nnoremap("<leader>fh", function() require('telescope.builtin').help_tags() end)
-
-
-
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
