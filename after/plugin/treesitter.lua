@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
         "help", "rust", "lua", "php", "javascript"
     },
@@ -11,7 +11,7 @@ require'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = true,
     },
 }
-require'treesitter-context'.setup()
+require 'treesitter-context'.setup()
 
 vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
   group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
@@ -22,9 +22,9 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
 })
 -- Open folds upon entering buffers
 vim.api.nvim_create_autocmd(
-    {"BufReadPost,FileReadPost"},
+    { "BufReadPost,FileReadPost" },
     {
         command = "normal zR",
-        group = vim.api.nvim_create_augroup("treesitter-fold", { clear = true})
+        group = vim.api.nvim_create_augroup("treesitter-fold", { clear = true })
     }
 )

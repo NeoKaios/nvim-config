@@ -9,8 +9,8 @@ require('nvim-surround').setup()
 require('gitsigns').setup({
     signcolumn = false,
     numhl = true,
-}
-)
+    current_line_blame = true,
+})
 
 require('trouble').setup()
 
@@ -18,7 +18,7 @@ require('trouble').setup()
 
 require('toggleterm').setup({
     open_mapping = "<c-s>",
-    direction='float'
+    direction = 'float'
 }
 )
 
