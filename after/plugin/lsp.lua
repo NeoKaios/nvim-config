@@ -6,6 +6,7 @@ lsp.nvim_workspace()
 lsp.set_preferences({
     set_lsp_keymaps = false
 })
+
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
@@ -22,6 +23,14 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>j<s-Tab>", vim.diagnostic.goto_prev, opts)
 end)
 lsp.setup()
+
+-- Deactivating luasnip cmp for markdown files (it causes lag)
+local cmp = require('cmp')
+cmp.setup.filetype('markdown', {
+    sources = cmp.config.sources({}, {
+        { name = 'buffer', keyword_length = 3 },
+    })
+})
 
 vim.diagnostic.config({
     virtual_text = true,
