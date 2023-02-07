@@ -1,6 +1,4 @@
 require('nvim-tree').setup({
-    open_on_setup = true,
-    open_on_setup_file = true,
     hijack_cursor = true,
     diagnostics = {
         enable = true,
@@ -17,5 +15,17 @@ require('nvim-tree').setup({
     },
 })
 
-vim.keymap.set("n", "<leader>fd", function() require('nvim-tree').focus() end)
+-- focus and find file
+vim.keymap.set("n", "<leader>fd",
+function()
+    require('nvim-tree').toggle(false, false)
+    require('nvim-tree').toggle(true, false)
+end
+)
 vim.keymap.set("n", "<leader>ft", function() require('nvim-tree').toggle(false, true) end)
+
+-- open tree on VimEnter
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = function()
+    require("nvim-tree").toggle(true, false)
+end
+ })
