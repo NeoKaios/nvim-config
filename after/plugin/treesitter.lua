@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
 })
 -- Open folds upon entering buffers
 vim.api.nvim_create_autocmd(
-    { "BufReadPost,FileReadPost" },
+    { 'BufReadPost', 'FileReadPost' },
     {
         command = "normal zR",
         group = vim.api.nvim_create_augroup("treesitter-fold", { clear = true })

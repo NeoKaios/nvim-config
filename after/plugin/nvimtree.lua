@@ -1,4 +1,15 @@
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  -- custom mappings
+  vim.keymap.set('n', '<leader>cd', api.tree.change_root_to_node,        opts('Change directory'))
+end
+
 require('nvim-tree').setup({
+    on_attach = my_on_attach,
     hijack_cursor = true,
     diagnostics = {
         enable = true,
