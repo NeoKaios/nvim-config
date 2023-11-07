@@ -89,6 +89,8 @@ require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'Eandrju/cellular-automaton.nvim'
 
+  use 'whonore/Coqtail'
+
     if packer_bootstrap then
         require 'packer'.sync()
     end
