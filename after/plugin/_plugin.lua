@@ -21,6 +21,7 @@ require('toggleterm').setup({
     direction = 'float'
 }
 )
+require("auto-hlsearch").setup()
 
 --Interfer with zR autocommand in treesitter atm, still useful tho
 -- require('which-key').setup({

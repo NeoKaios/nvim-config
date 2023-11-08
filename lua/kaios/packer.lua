@@ -75,6 +75,7 @@ require('packer').startup(function(use)
   use "mg979/vim-visual-multi"
   use "kylechui/nvim-surround"
   use 'folke/zen-mode.nvim'
+  use({ "asiryk/auto-hlsearch.nvim", tag = "1.1.0" })
 
   -- Visuals
   use {
