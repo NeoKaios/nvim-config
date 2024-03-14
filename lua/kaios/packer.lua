@@ -63,17 +63,25 @@ require('packer').startup(function(use)
       }
   }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  -- use {
+  --     "jay-babu/mason-null-ls.nvim",
+  --     requires = {
+  --         "williamboman/mason.nvim",
+  --         "nvimtools/none-ls.nvim",
+  --     },
+  -- }
 
   --QOL
   use 'numToStr/Comment.nvim'
   use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
   })
   use "windwp/nvim-autopairs"
   use "folke/which-key.nvim"
   use "mg979/vim-visual-multi"
   use "kylechui/nvim-surround"
+  use "windwp/nvim-ts-autotag"
   use 'folke/zen-mode.nvim'
   use({ "asiryk/auto-hlsearch.nvim", tag = "1.1.0" })
 
@@ -90,19 +98,18 @@ require('packer').startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'Eandrju/cellular-automaton.nvim'
 
-  use 'whonore/Coqtail'
-
-    if packer_bootstrap then
-        require 'packer'.sync()
-    end
+  if packer_bootstrap then
+      require 'packer'.sync()
+  end
 
 end)
 
 --[[ Other plugins
-  use "ellisonleao/glow.nvim" -- markdown preview in neovim
-  use 'gen740/SmoothCursor.nvim' -- smooth cursor scrolling in signcol
+use 'whonore/Coqtail'
+use "ellisonleao/glow.nvim" -- markdown preview in neovim
+use 'gen740/SmoothCursor.nvim' -- smooth cursor scrolling in signcol
 
-  use 'kdheepak/lazygit.nvim'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
+use 'kdheepak/lazygit.nvim'
+use 'tpope/vim-fugitive'
+use 'tpope/vim-rhubarb'
 ]]

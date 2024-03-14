@@ -11,6 +11,7 @@ lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gf", vim.lsp.buf.format, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "gs", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -40,3 +41,16 @@ vim.diagnostic.config({
     severity_sort = true,
     float = true,
 })
+
+-- require("mason-null-ls").setup({
+--     ensure_installed = {
+--         -- Opt to list sources here, when available in mason.
+--     },
+--     automatic_installation = false,
+--     handlers = {},
+-- })
+-- require("null-ls").setup({
+--     sources = {
+--         -- Anything not supported by mason.
+--     }
+-- })

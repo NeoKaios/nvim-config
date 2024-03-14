@@ -19,9 +19,11 @@ require('trouble').setup()
 require('toggleterm').setup({
     open_mapping = "<c-s>",
     direction = 'float'
-}
-)
+})
+
 require("auto-hlsearch").setup()
+
+require('nvim-ts-autotag').setup()
 
 --Interfer with zR autocommand in treesitter atm, still useful tho
 -- require('which-key').setup({
