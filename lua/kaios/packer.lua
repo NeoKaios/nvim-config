@@ -25,8 +25,7 @@ require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        }
     }
     use {
         'nvim-lualine/lualine.nvim',
@@ -53,13 +52,13 @@ require('packer').startup(function(use)
           {'hrsh7th/nvim-cmp'},
           {'hrsh7th/cmp-buffer'},
           {'hrsh7th/cmp-path'},
-          {'saadparwaiz1/cmp_luasnip'},
+          -- {'saadparwaiz1/cmp_luasnip'},
           {'hrsh7th/cmp-nvim-lsp'},
           {'hrsh7th/cmp-nvim-lua'},
 
           -- Snippets
-          {'L3MON4D3/LuaSnip'},
-          {'rafamadriz/friendly-snippets'},
+          -- {'L3MON4D3/LuaSnip'},
+          -- {'rafamadriz/friendly-snippets'},
       }
   }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}

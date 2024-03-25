@@ -1,56 +1,86 @@
-local lsp = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 
-lsp.preset('recommended')
-lsp.nvim_workspace()
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
 
-lsp.set_preferences({
-    set_lsp_keymaps = false
+  local opts = { buffer = bufnr, remap = false }
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+end)
+
+--- if you want to know more about lsp-zero and mason.nvim
+--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
 })
 
-lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gf", vim.lsp.buf.format, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gs", vim.lsp.buf.workspace_symbol, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-    vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "<leader>j<Tab>", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "<leader>j<s-Tab>", vim.diagnostic.goto_prev, opts)
-end)
-lsp.setup()
-
--- Deactivating luasnip cmp for markdown files (it causes lag)
-local cmp = require('cmp')
-cmp.setup.filetype('markdown', {
-    sources = cmp.config.sources({}, {
-        { name = 'buffer', keyword_length = 3 },
-    })
+lsp_zero.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = ''
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
-    signs = false,
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = true,
+  virtual_text = true,
+  signs = { severity = 'error' },
+  severity_sort = true,
+  float = {
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
 })
 
--- require("mason-null-ls").setup({
---     ensure_installed = {
---         -- Opt to list sources here, when available in mason.
---     },
---     automatic_installation = false,
---     handlers = {},
--- })
--- require("null-ls").setup({
---     sources = {
---         -- Anything not supported by mason.
---     }
--- })
+local cmp = require('cmp')
+local cmp_action = lsp_zero.cmp_action()
+local cmp_format = lsp_zero.cmp_format()
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+cmp.setup({
+  formatting = cmp_format,
+  preselect = 'item',
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
+  sources = {
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'buffer',  keyword_length = 3 },
+    -- {name = 'luasnip', keyword_length = 2},
+  },
+  mapping = cmp.mapping.preset.insert({
+    -- confirm completion item
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+    -- toggle completion menu
+    ['<C-e>'] = cmp_action.toggle_completion(),
+
+    -- tab complete
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+    -- navigate between snippet placeholder
+    ['<C-d>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    -- scroll documentation window
+    ['<C-f>'] = cmp.mapping.scroll_docs(5),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-5),
+  }),
+})

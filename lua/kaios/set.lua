@@ -24,5 +24,6 @@ o.splitright = true
 o.updatetime = 300
 o.timeoutlen = 500
 o.list = true
+o.signcolumn = 'number'
 
 vim.g.mapleader = ' '
