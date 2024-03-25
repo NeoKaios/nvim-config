@@ -26,4 +26,6 @@ o.timeoutlen = 500
 o.list = true
 o.signcolumn = 'number'
 
+o.foldenable = false
+
 vim.g.mapleader = ' '

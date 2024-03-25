@@ -12,19 +12,3 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 require 'treesitter-context'.setup()
-
-vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
-  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-  callback = function()
-    vim.opt.foldmethod     = 'expr'
-    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
-  end
-})
--- Open folds upon entering buffers
-vim.api.nvim_create_autocmd(
-    { 'BufReadPost', 'FileReadPost' },
-    {
-        command = "normal zR",
-        group = vim.api.nvim_create_augroup("treesitter-fold", { clear = true })
-    }
-)
