@@ -24,7 +24,7 @@ vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<CR>")
 vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<CR>")
 vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>")
 -- rotate buffer ignoring nvim-tree window
-vim.keymap.set("n", "<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree').toggle(false, true)<cr><cmd>lua require('nvim-tree').toggle(false, true)<cr>")
+vim.keymap.set("n", "<C-w><C-w>", "<C-w>r<cmd>lua require('nvim-tree.api').tree.toggle(false, true)<cr><cmd>lua require('nvim-tree.api').tree.toggle(false, true)<cr>")
 -- vim.keymap.set("n", "<C-up>", "<C-w>+")
 -- vim.keymap.set("n", "<C-down>", "<C-w>-")
 vim.keymap.set("n", "<C-left>", "<C-w><")
