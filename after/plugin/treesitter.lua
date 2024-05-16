@@ -1,8 +1,4 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "help", "rust", "lua", "php", "javascript"
-    },
-
     sync_install = false,
     auto_install = true,
 
